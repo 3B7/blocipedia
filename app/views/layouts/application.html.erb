@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blocipedia</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container">
-    <ul class="nav nav-tabs">
-      <li><%= link_to "Bloccit", welcome_about_path %></li>
-      <li><%= link_to "About", welcome_about_path %></li>
-    </ul>
+  <head>
+    <title>Blocipedia</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li><%= link_to "Bloccit", welcome_about_path %></li>
+        <li><%= link_to "About", welcome_about_path %></li>
+      </ul>
 
-<<<<<<< HEAD
-  <%= yield %>
-</div>
-=======
-  <ul>
-    <li><%= link_to "Home", welcome_index_path %></li>
-    <li><%= link_to "About", welcome_about_path %></li>
-  </ul>
+    <%= yield %>
+    </div>
 
-  <%= yield %>
-
->>>>>>> c38138b5fb9f41b4216928ca4a57ca74277a3767
-</body>
+  </body>
 </html>
