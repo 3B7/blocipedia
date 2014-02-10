@@ -130,11 +130,8 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.3.1.0)
   coffee-rails (~> 3.2.1)
-<<<<<<< HEAD
   devise
-=======
   faker
->>>>>>> 68395e8ad7848c92be3594bef6520a6b062588da
   jquery-rails
   pg
   rails (= 3.2.13)
