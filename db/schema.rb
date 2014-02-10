@@ -11,6 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20140209081337) do
+=======
 ActiveRecord::Schema.define(:version => 20140209211922) do
 
   create_table "articles", :force => true do |t|
@@ -21,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140209211922) do
   end
 
   add_index "articles", ["wiki_id"], :name => "index_articles_on_wiki_id"
+>>>>>>> 68395e8ad7848c92be3594bef6520a6b062588da
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
