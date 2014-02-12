@@ -1,9 +1,8 @@
 Blocipedia::Application.routes.draw do
-  devise_for :users
+ 
+  resources :articles
 
-  get "welcome/index"
+  match "About" => 'welcome#about', via: :get
 
-  get "welcome/about"
-
-  root to: 'welcome#index'
+  root :to => 'welcome#index'
 end
