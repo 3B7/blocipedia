@@ -6,6 +6,9 @@
         <h6><%= link_to article.title, article %></h6>
         <p><%= link_to article.body, article %></p> 
       </h4>
+      <small>
+        submitted <%= time_ago_in_words(article.created_at) %> ago by <%= article.user.name %><br/>
+      </small>
     </div>
   </div>
 <% end %>
