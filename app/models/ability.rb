@@ -6,14 +6,12 @@ class Ability
     #
     user ||= User.new # guest user
     if user.role? :member
-      can :manage, Post, :user_id => user.id
-      can :manage, Comment, :user_id => user.id
+      can :manage, Article, :user_id => user.id
     end
 
     # Moderators can delete any post
     if user.role? :moderator
-      can :destroy, Post
-      can :destroy, Comment
+      can :destroy, Article
     end
 
     # Admins can do anything
