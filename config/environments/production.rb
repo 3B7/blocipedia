@@ -62,5 +62,5 @@ Blocipedia::Application.configure do
   config.active_support.deprecation = :notify
 
   # http://bloccit.herokuapp.com
-  config.action_mailer.default_url_options = { :host => 'bloccit.herokuapp.com' }  
+  config.action_mailer.default_url_options = { :host => 'eb-blocipedia.herokuapp.com' }  
 end
