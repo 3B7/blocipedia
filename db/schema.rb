@@ -11,23 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218063558) do
+ActiveRecord::Schema.define(:version => 20140218062439) do
 
   create_table "articles", :force => true do |t|
     t.text     "body"
     t.integer  "wiki_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "title"
     t.integer  "user_id"
-    t.integer  "wiki_identification"
   end
 
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
   add_index "articles", ["wiki_id"], :name => "index_articles_on_wiki_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -42,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20140218063558) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "name"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"

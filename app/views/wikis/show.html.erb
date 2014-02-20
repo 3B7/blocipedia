@@ -1,0 +1,27 @@
+<h1><%= @wiki.title %></h1>
+
+<% if can? :update, @wiki %>
+  <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary btn-mini' %>
+<% end %>
+
+<div class="row">
+  <div class="span8">
+    <% @articles.each do |article| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to article.title, [@wiki, article] %>
+          </h4>
+            <small>
+            submitted <%= time_ago_in_words(article.created_at) %> ago by <%= article.user.name %><br/>
+            </small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="span4">
+    <% if can? :create, Article %>
+      <%= link_to "New Article", new_wiki_article_path(@wiki), class: 'btn btn-large btn-block' %>
+    <% end %>
+  </div>
+</div>

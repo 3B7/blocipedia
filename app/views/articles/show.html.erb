@@ -1,7 +1,11 @@
 <h5><%= @article.title %></h5>
 
-<% if can? :edit, @article %>
-  <%= link_to "Edit", edit_article_path(@article), class: 'btn btn-mini' %>
-<% end %>
-
-<p><%= @article.body %></p>
+<div class="row">
+  <div class="span8">
+    <p><%= @article.body %></p>
+  </div>
+  <div class="span4">
+    <% if can? :edit, @article %>
+  <%= link_to "Edit", edit_wiki_article_path(@wiki, @article), class: 'btn btn-mini' %>
+  <% end %>
+</div>
