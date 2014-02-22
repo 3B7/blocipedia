@@ -10,7 +10,7 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to article.title, [@wiki, article] %>
+            <%= link_to (markdown article.title), [@wiki, article] %>
           </h4>
             <small>
             submitted <%= time_ago_in_words(article.created_at) %> ago by <%= article.user.name %><br/>
