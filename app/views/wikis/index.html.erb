@@ -11,6 +11,7 @@
         </div>
       </div>
     <% end %>
+    <%= will_paginate @wikis %>
   </div>
   <div class="span4">
     <% if can? :create, Wiki %>
