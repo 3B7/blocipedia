@@ -1,7 +1,7 @@
 require 'faker'
 
 wikis = []
-15.times do
+25.times do
   wikis << Wiki.create(
     title: Faker::Lorem.words(rand(1..10)).join(" ")
   )
@@ -23,7 +23,7 @@ rand(5..12).times do
     p = u.articles.create(
       wiki: wiki,
       title: Faker::Lorem.words(rand(1..10)).join(" "), 
-      body: Faker::Lorem.paragraphs(rand(3..5)).join("\n"))
+      body: Faker::Lorem.paragraphs(rand(4..6)).join("\n"))
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
 

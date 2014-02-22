@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -10,7 +10,7 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
-    @articles = @wiki.articles
+    @articles = @wiki.articles.paginate(page: params[:page], per_page: 10)
   end
 
   def edit
