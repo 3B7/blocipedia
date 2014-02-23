@@ -28,3 +28,5 @@ gem 'carrierwave'
 gem 'mini_magick', '~> 3.5.0'
 gem 'fog'
 gem 'figaro'
+gem 'omniauth-facebook'
+gem "certified", "~> 0.1.1"
