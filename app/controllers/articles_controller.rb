@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @wiki = Wiki.find(params[:wiki_id])
+    authorize! :read, @article, message: "You need to be signed-in to do that."
   end
 
   def new
