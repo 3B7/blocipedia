@@ -6,7 +6,8 @@ class Ability
     #
     user ||= User.new # guest user
     if user.role? :member
-      can :manage, Article, :user_id => user.id
+      can :manage, Article, user_id: user.id
+      can :read, Wiki
     end
 
     # Moderators can delete any post
@@ -19,6 +20,7 @@ class Ability
       can :manage, :all
     end
 
-    can :read, :all
+    can :read, Wiki, public true
+    can :read, Article
   end
 end
