@@ -23,6 +23,7 @@
   <div class="span4">
     <% if can? :create, Article %>
       <%= link_to "New Article", new_wiki_article_path(@wiki), class: 'btn btn-large btn-block' %>
+      <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this wiki?' %> 
     <% end %>
   </div>
 </div>

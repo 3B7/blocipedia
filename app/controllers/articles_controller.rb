@@ -47,5 +47,19 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @wiki = Wiki.find(params[:wiki_id])
+    @article = Article.find(params[:id])
 
+    title = @article.title
+    authorize! :destroy, @article, message: "You need to own that article to delete it."
+    if @article.destroy
+      flash[:notice] = "\"#{title}\" was deleted succesfully."
+      redirect_to @wiki
+    else
+      flash[:error] = "There was an error deleting the article."
+      render :show
+    end
+  end
+  
 end
