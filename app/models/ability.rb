@@ -20,7 +20,7 @@ class Ability
       can :manage, :all
     end
 
-    can :read, Wiki, public true
+    can :read, Wiki, public: true
     can :read, Article
   end
 end
