@@ -7,7 +7,7 @@ class Ability
     user ||= User.new # guest user
     if user.role? :member
       can :manage, Article, user_id: user.id
-      can :read, Wiki
+      can :create, Wiki
     end
 
     # Moderators can delete any post

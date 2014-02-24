@@ -28,7 +28,11 @@
       <%= f.password_field :password_confirmation %>
     </div>
   </div>
-  <p>For Premium accounts please sign up/sign in and them click on create private wikis!</p>
+  <div class="controls">
+    <p>Want to become a premium account user? Click below!</p>
+    <%= link_to "Premium Account", new_charge_path, class: 'btn' %>
+  </div>
+  </br>
   <div class="control-group">
     <div class="controls">
       <%= f.submit "Sign up", class: 'btn' %>

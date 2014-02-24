@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   def create
     @wiki = Wiki.find(params[:wiki_id])
     @article = current_user.articles.build(params[:article])
-    @article.wiki = @article
+    
     
     authorize! :create, @article, message: "You need to be signed up to do that."
     if @article.save
