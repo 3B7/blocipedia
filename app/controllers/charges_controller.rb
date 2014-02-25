@@ -19,6 +19,8 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
       )
 
+    current_user.role = :premium
+
     redirect_to new_wiki_path
 
   rescue Stripe::CardError => e

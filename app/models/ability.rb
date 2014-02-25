@@ -20,6 +20,10 @@ class Ability
       can :manage, :all
     end
 
+    if user.role? :premium
+      can :manage, Wiki
+    end
+
     can :read, Wiki, public: true
     can :read, Article
   end
