@@ -20,6 +20,8 @@ class ChargesController < ApplicationController
       )
 
     current_user.role = :premium
+    current_user.save!
+    p current_user
 
     redirect_to new_wiki_path
 
