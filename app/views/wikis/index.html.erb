@@ -6,7 +6,7 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to wiki.title, wiki %>
+            <%= link_to wiki.title.having(:public), wiki %>
           </h4>
         </div>
       </div>
@@ -18,10 +18,10 @@
       <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-large btn-block' %>
     <% end %>
   </div>
-</br>
   <div class="span4">
-    <h5>Want to become a premium account user? Click below!</h5>
-    <%= link_to "Premium Account", new_charge_path, class: 'btn btn-large btn-success' %>
+    <% if current_user.role == 'member' %>
+      <h5>Want to become a premium account user? Click below!</h5>
+      <%= link_to "Premium Account", new_charge_path, class: 'btn btn-large btn-success' %>
+    <% end %>
   </div>
-  </br>
 </div>
