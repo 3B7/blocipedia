@@ -10,7 +10,7 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
-    authorize! :read, @wiki, message: "You need to be signed in to do that."
+    authorize! :read, Wiki, message: "You need to be signed in to do that."
     @articles = @wiki.articles.paginate(page: params[:page], per_page: 10)
   end
 

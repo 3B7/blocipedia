@@ -19,3 +19,6 @@
 
 # Carrierwave image
 public/uploads
+
+# Stripe configuration
+/config/initializers/stripe.rb

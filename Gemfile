@@ -30,3 +30,4 @@ gem 'fog'
 gem 'figaro'
 gem 'omniauth-facebook'
 gem "certified", "~> 0.1.1"
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
