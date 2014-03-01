@@ -21,7 +21,7 @@ rand(4..10).times do
 
 rand(4..10).times do
   password = Faker::Lorem.characters(10)
-  c= User.new(
+  c= Collaborator.new(
     name: Faker::Name.name, 
     email: Faker::Internet.email, 
     password: password, 
