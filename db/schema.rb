@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140223055406) do
+ActiveRecord::Schema.define(:version => 20140228053630) do
 
   create_table "articles", :force => true do |t|
     t.text     "body"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(:version => 20140223055406) do
 
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
   add_index "articles", ["wiki_id"], :name => "index_articles_on_wiki_id"
+
+  create_table "collaborators", :force => true do |t|
+    t.string   "name"
+    t.integer  "wiki_id"
+    t.string   "index"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "collaborators", ["wiki_id"], :name => "index_collaborators_on_wiki_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -47,8 +57,10 @@ ActiveRecord::Schema.define(:version => 20140223055406) do
     t.string   "avatar"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "collaborator_id"
   end
 
+  add_index "users", ["collaborator_id"], :name => "index_users_on_collaborator_id"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

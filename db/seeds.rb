@@ -18,6 +18,17 @@ rand(4..10).times do
   u.skip_confirmation!
   u.save
 
+
+rand(4..10).times do
+  password = Faker::Lorem.characters(10)
+  c= User.new(
+    name: Faker::Name.name, 
+    email: Faker::Internet.email, 
+    password: password, 
+    password_confirmation: password)
+  c.skip_confirmation!
+  c.save
+
 rand(5..12).times do
     wiki = wikis.first
     p = u.articles.create(
@@ -40,6 +51,14 @@ u.skip_confirmation!
 u.save
 u.update_attribute(:role, 'admin')
 
+c = User.new(
+  name: 'Collaborator User',
+  email: 'collaborator@example.com',
+  password: 'helloworld',
+  password_confirmation: 'helloworld')
+c.skip_confirmation!
+c.save
+
 u = User.new(
   name: 'Moderator User',
   email: 'moderator@example.com', 
@@ -60,3 +79,5 @@ u.save
 puts "Seed finished"
 puts "#{Wiki.count} wikis created"
 puts "#{Article.count} articles created"
+
+end

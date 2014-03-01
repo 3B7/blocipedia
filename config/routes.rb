@@ -1,10 +1,6 @@
 Blocipedia::Application.routes.draw do
 
-  get "collaborator/index"
-
-  get "collaborator/create"
-
-  get "collaborator/destroy"
+resources :collaborator
 
 devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }  
 
