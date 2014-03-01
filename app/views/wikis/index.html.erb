@@ -18,10 +18,10 @@
       <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-large btn-block' %>
     <% end %>
   </div>
-  <div class="span4">
-    <% if current_user.role == 'member' %>
+
+  <div class="span4 offset8">
       <h5>Want to become a premium account user? Click below!</h5>
       <%= link_to "Premium Account", new_charge_path, class: 'btn btn-large btn-success' %>
-    <% end %>
   </div>
+
 </div>
