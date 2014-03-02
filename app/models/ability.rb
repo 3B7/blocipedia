@@ -6,13 +6,12 @@ class Ability
     #
     user ||= User.new # guest user
     if user.role? :member
-      can :manage, Article, user_id: user.id
       can :manage, Wiki
     end
 
     # Moderators can delete any post
     if user.role? :moderator
-      can :destroy, Article
+      can :destroy, Wiki
     end
 
     # Premium users can create Private wikis
@@ -26,6 +25,5 @@ class Ability
     end
 
     can :read, Wiki, public: true
-    can :read, Article
   end
 end

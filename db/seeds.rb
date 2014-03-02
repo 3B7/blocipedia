@@ -1,9 +1,10 @@
 require 'faker'
  
 wikis = []
-1.times do
+5.times do
 wikis << Wiki.create(
-title: Faker::Lorem.words(rand(1..10)).join(" ")
+title: Faker::Lorem.words(rand(1..10)).join(" "),
+body: Faker::Lorem.paragraphs(rand(4..6)).join("\n")
 )
 end
  
@@ -18,18 +19,9 @@ password_confirmation: password)
 u.skip_confirmation!
 u.save
  
-rand(5..12).times do
-wiki = wikis.first
-p = u.articles.create(
-wiki: wiki,
-title: Faker::Lorem.words(rand(1..10)).join(" "),
-body: Faker::Lorem.paragraphs(rand(4..6)).join("\n"))
-# set the created_at to a time within the past year
-p.update_attribute(:created_at, Time.now - rand(600..31536000))
- 
 wikis.rotate!
 end
-end
+
  
  
 u = User.new(
@@ -76,4 +68,3 @@ p Wiki.first.collaborator.users
  
 puts "Seed finished"
 puts "#{Wiki.count} wikis created"
-puts "#{Article.count} articles created"
