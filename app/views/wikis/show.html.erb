@@ -1,15 +1,21 @@
 <div class="container">
+<div class="hero-unit">
 <h1><%= @wiki.title %></h1>
 <h6><%= @wiki.body %></h6>
 </br>
 
 <% if can? :update, @wiki %>
-  <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary btn-medium' %>
+  <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-xs btn-primary' %>
 <% end %>
 </br>
 </br>
 
 <% if can? :create, Wiki %>
-  <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-medium btn-danger', confirm: 'Are you sure you want to delete this wiki?' %>
+  <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-xs btn-danger', confirm: 'Are you sure you want to delete this wiki?' %>
 <% end %>
+</br>
+</div>
+<div class="text-center">
+<%= link_to "Share Wiki", collaborator_index_path, class: 'btn btn-large btn-info' %>
+</div>
 </div>
