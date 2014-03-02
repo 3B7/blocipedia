@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140302043646) do
+ActiveRecord::Schema.define(:version => 20140302165644) do
 
   create_table "collaborators", :force => true do |t|
     t.string   "name"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20140302043646) do
     t.string   "index"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
+  add_index "collaborators", ["user_id"], :name => "index_collaborators_on_user_id"
   add_index "collaborators", ["wiki_id"], :name => "index_collaborators_on_wiki_id"
 
   create_table "users", :force => true do |t|

@@ -10,11 +10,6 @@ class Ability
       can :update, Wiki
     end
 
-    # Moderators can delete any post
-    if user.role? :moderator
-      can :destroy, Wiki
-    end
-
     # Premium users can create Private wikis
     if user.role? :premium
       can :manage, Wiki, :id => user.id
