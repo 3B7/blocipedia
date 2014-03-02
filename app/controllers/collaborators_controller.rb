@@ -11,20 +11,19 @@ class CollaboratorsController < ApplicationController
     if @collaborator.save
       flash[:notice] = "Collaborator was saved succesfully."
     else
-      flash[:error] = "There was an error saving your collaborator. Please try again."
-      render :new
+      flash[:notice] = "There was an error saving your collaborator. Please try again."
     end
+    redirect_to wiki_collaborators_path(@wiki)
   end
 
   def destroy
     @collaborator = Collaborator.find(params[:id])
     @wiki = Wiki.find(params[:wiki_id])
     if @collaborator.destroy
-      flash[:notice] = "\"#{collaborator}\" was deleted succesfully"
-      redirect_to collaborator_index_path
+      flash[:notice] = "Collaborator was deleted succesfully"
     else
       flash[:error] = "There was an error deleting your collaborator. Please try again."
-      render :show
     end
+    redirect_to wiki_collaborators_path(@wiki)
   end
 end

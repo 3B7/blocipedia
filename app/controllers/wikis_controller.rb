@@ -10,7 +10,7 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
-    @collaborator = @wiki.collaborator
+    @collaborator = @wiki.collaborators
     authorize! :read, Wiki, message: "You need to be signed in to do that."
   end
 
