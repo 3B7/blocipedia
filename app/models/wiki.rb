@@ -1,6 +1,7 @@
 class Wiki < ActiveRecord::Base
-  has_many :articles, dependent: :destroy
-  attr_accessible :title, :body, :public
+  attr_accessible :title, :body, :public, :collaborators
+  has_many :collaborators, dependent: :destroy
+  belongs_to :user
 
   scope :visible_to, lambda { |user| user ? scoped : where(public: true) }
   

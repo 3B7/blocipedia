@@ -1,29 +1,21 @@
+<div class="container">
+<div class="hero-unit">
 <h1><%= @wiki.title %></h1>
+<h6><%= @wiki.body %></h6>
+</br>
 
 <% if can? :update, @wiki %>
-  <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-primary btn-mini' %>
+  <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-xs btn-primary' %>
 <% end %>
+</br>
+</br>
 
-<div class="row">
-  <div class="span8">
-    <% @articles.each do |article| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to (markdown article.title), [@wiki, article] %>
-          </h4>
-            <small>
-              <%= image_tag(article.user.avatar.tiny.url) if article.user.avatar? %>
-            submitted <%= time_ago_in_words(article.created_at) %> ago by <%= article.user.name %><br/>
-            </small>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="span4">
-    <% if can? :create, Article %>
-      <%= link_to "New Article", new_wiki_article_path(@wiki), class: 'btn btn-large btn-block' %>
-      <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this wiki?' %> 
-    <% end %>
-  </div>
+<% if can? :create, Wiki %>
+  <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-xs btn-danger', confirm: 'Are you sure you want to delete this wiki?' %>
+<% end %>
+</br>
+</div>
+<div class="text-center">
+<%= link_to "Share Wiki", wiki_collaborators_path(@wiki), class: 'btn btn-large btn-info' %>
+</div>
 </div>

@@ -1,0 +1,19 @@
+<h1 class="text-justify">Collaborators</h1>
+</br>
+<h5>Add collaborators to the Wiki (showing all current users)</h5>
+</br>
+<p>You must first enroll as a premium user before you can add or view potential collaborators!</p>
+</br>
+<% @users.each do |u| %>
+  <%= form_for [wiki, collaborator] do |f| %>
+    <div class="row">
+      <div class="span3">
+        <%= u.name %> <%= u.email %>
+      </div>
+      <div class="span3">
+        <%= f.hidden_field :user_id, :value => u.id %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
