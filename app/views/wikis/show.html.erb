@@ -1,7 +1,7 @@
 <div class="container">
 <div class="hero-unit">
-<h1><%= @wiki.title %></h1>
-<h6><%= @wiki.body %></h6>
+<h1><%= markdown @wiki.title %></h1>
+<h6><%= markdown @wiki.body %></h6>
 </br>
 
 <% if can? :update, @wiki %>
