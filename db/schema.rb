@@ -11,21 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140302165644) do
+ActiveRecord::Schema.define(:version => 20140217015312) do
 
-  create_table "collaborators", :force => true do |t|
-    t.string   "name"
+  create_table "articles", :force => true do |t|
+    t.text     "body"
     t.integer  "wiki_id"
-    t.string   "index"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
     t.integer  "user_id"
   end
 
-  add_index "collaborators", ["user_id"], :name => "index_collaborators_on_user_id"
-  add_index "collaborators", ["wiki_id"], :name => "index_collaborators_on_wiki_id"
+  add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
+  add_index "articles", ["wiki_id"], :name => "index_articles_on_wiki_id"
 
   create_table "users", :force => true do |t|
+    t.string   "name"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -40,29 +41,19 @@ ActiveRecord::Schema.define(:version => 20140302165644) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "name"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
-    t.string   "avatar"
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "collaborator_id"
   end
 
-  add_index "users", ["collaborator_id"], :name => "index_users_on_collaborator_id"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "wikis", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.boolean  "public"
-    t.integer  "user_id"
-    t.text     "body"
+    t.boolean  "public",     :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
-
-  add_index "wikis", ["user_id"], :name => "index_wikis_on_user_id"
 
 end
